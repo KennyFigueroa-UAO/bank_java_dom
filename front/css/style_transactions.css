@@ -1,17 +1,69 @@
+/* BOTONES DE ACCIONES DE TRANSACCIONES */
+.transactions-action-btn {
+    background: linear-gradient(135deg, var(--main-purple) 0%, var(--dark-purple) 100%);
+    color: var(--white);
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 12px var(--shadow);
+    width: 100%;
+}
+
+.transactions-action-btn:hover {
+    background: linear-gradient(135deg, var(--dark-purple) 0%, var(--main-purple) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--shadow);
+}
+/* HEADER ACTIONS (agrupa los botones a la derecha del header) */
+.header-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+#userPage-logout {
+    position: static;
+    background: linear-gradient(135deg, #b91c1c 0%, #a83232 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 24px 0 rgba(239, 68, 68, 0.55) !important;
+    z-index: 1;
+}
+
+#userPage-logout:hover {
+    background: linear-gradient(135deg, #a83232 0%, #b91c1c 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 12px 36px 0 rgba(239,68,68,0.45) !important;
+}
 :root {
-    --main-blue-color:#08203a;
-    --main-yellow-color: #ffcf27; 
-    --background-blue-gradiente:#1a3b5c;
-    --background-yellow-gradient:#f0c020;
-    --background-yellow-gradient2:#e6b01a;
-    --main-background-blue:linear-gradient(135deg, var(--main-blue-color) 0%, var(--background-blue-gradiente) 100%);
-    --black-shadow-color:rgba(0, 0, 0, 0.3);
-    --white-color:white; 
-    --antiflash-white-background:#f1f1f1;
-    --ghost-white-backgroud:#f8f9fa;
-    --bright-gray-border-color:#e9ecef;
-    --pale-blue-background-color:#e3f2fd;
-    --error-red-color:#dc3545;
+    --main-purple: #7c3aed;
+    --dark-purple: #5b21b6;
+    --light-purple: #a78bfa;
+    --accent-pink: #ec4899;
+    --background-gradient-start: #1e1b4b;
+    --background-gradient-end: #312e81;
+    --white: #ffffff;
+    --light-bg: #f8f7ff;
+    --card-bg: #faf9ff;
+    --border-color: #e9d5ff;
+    --hover-bg: #ede9fe;
+    --success-green: #10b981;
+    --error-red: #ef4444;
+    --shadow: rgba(124, 58, 237, 0.2);
+    --dark-shadow: rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -21,52 +73,52 @@
 }
 
 html, body {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    background: var(--main-background-blue);
+    height: 100%;
+    width: 100%;
+    overflow: auto; /* permitir scroll en dispositivos pequeños */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--background-gradient-start) 0%, var(--background-gradient-end) 50%, var(--dark-purple) 100%);
     color: #333;
 }
 
 /* HEADER STYLES */
 header {
-    background: linear-gradient(90deg, var(--main-blue-color) 0%, var(--background-blue-gradiente) 100%);
-    color: var(--main-yellow-color);
-    padding: 15px 30px;
-    box-shadow: 0 4px 12px var(--black-shadow-color);
+    background: linear-gradient(90deg, var(--dark-purple) 0%, var(--main-purple) 100%);
+    color: var(--white);
+    padding: 20px 30px;
+    box-shadow: 0 4px 20px var(--dark-shadow);
     position: relative;
     z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid var(--main-yellow-color);
+    border-bottom: 4px solid var(--accent-pink);
 }
 
 #transactions-user-title {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 700;
     margin: 0;
-    text-shadow: 2px 2px 4px var(--black-shadow-color);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 #transactions-user-update-data-button {
-    background: linear-gradient(135deg, var(--main-yellow-color) 0%, var(--background-yellow-gradient) 100%);
-    color: var(--main-blue-color);
+    background: linear-gradient(135deg, var(--accent-pink) 0%, #be185d 100%);
+    color: var(--white);
     border: none;
-    padding: 12px 20px;
+    padding: 12px 24px;
     font-size: 14px;
-    font-weight: bold;
-    border-radius: 8px;
+    font-weight: 600;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
 }
 
 #transactions-user-update-data-button:hover {
-    background: linear-gradient(135deg, var(--background-yellow-gradient) 0%, var(--background-yellow-gradient2-b) 100%);
+    background: linear-gradient(135deg, #be185d 0%, var(--accent-pink) 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px var(--black-shadow-color);
+    box-shadow: 0 6px 16px rgba(236, 72, 153, 0.5);
 }
 
 /* MAIN CONTAINER */
@@ -74,15 +126,15 @@ header {
     display: grid;
     grid-template-columns: 280px 1fr 2fr;
     gap: 0;
-    height: calc(100vh - 80px);
-    background-color: var(--ghost-white-backgroud);
-    overflow: hidden;
+    min-height: calc(100vh - 90px);
+    background-color: var(--light-bg);
+    overflow: auto; /* permitir scroll dentro de la sección si hace falta */
 }
 
 /* NAVIGATION SECTIONS */
 nav {
-    background: var(--white-color);
-    border-right: 3px solid var(--main-blue-color);
+    background: var(--white);
+    border-right: 3px solid var(--light-purple);
     padding: 20px;
     overflow-y: auto;
     max-height: 100%;
@@ -93,17 +145,17 @@ nav::-webkit-scrollbar {
 }
 
 nav::-webkit-scrollbar-track {
-    background: var(--antiflash-white-background);
+    background: var(--card-bg);
     border-radius: 4px;
 }
 
 nav::-webkit-scrollbar-thumb {
-    background: var(--main-blue-color);
+    background: var(--main-purple);
     border-radius: 4px;
 }
 
 nav::-webkit-scrollbar-thumb:hover {
-    background: var(--background-blue-gradiente);
+    background: var(--dark-purple);
 }
 
 /* ACCOUNTS NAVIGATION */
@@ -116,86 +168,55 @@ nav::-webkit-scrollbar-thumb:hover {
 
 /* ACCOUNT SECTIONS */
 section {
-    background: var(--ghost-white-backgroud);
-    border: 2px solid var(--bright-gray-border-color);
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 15px;
 }
 
 section h3 {
-    color: var(--main-blue-color);
+    color: var(--dark-purple);
     font-size: 16px;
     margin-bottom: 10px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 /* RADIO BUTTON STYLING */
 section div {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
+    gap: 10px;
+    padding: 10px 12px;
     border-radius: 8px;
     transition: all 0.3s ease;
     margin-bottom: 5px;
 }
 
 section div:hover {
-    background-color: var(--pale-blue-background-color);
+    background-color: var(--hover-bg);
 }
 
 section input[type="radio"] {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--main-blue-color);
-    margin: 0;
-}
-
-section label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #495057;
-    cursor: pointer;
-    flex: 1;
-}
-
-section input[type="radio"]:checked + label {
-    color: var(--main-blue-color);
-    font-weight: bold;
-}
-
-/* BUTTONS IN NAVIGATION */
-#transactions-accounts-nav button,
-#transactions-selected-account-nav button {
-    background: var(--main-background-blue);
-    color: var(--main-yellow-color);
-    border: none;
-    padding: 14px 18px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-bottom: 8px;
-    box-shadow: 0 3px 6px var(--black-shadow-color);
     text-align: center;
 }
 
 #transactions-accounts-nav button:hover,
 #transactions-selected-account-nav button:hover {
-    background: linear-gradient(135deg, var(--main-yellow-color) 0%, var(--background-yellow-gradient) 100%);
-    color: var(--main-blue-color);
+    background: linear-gradient(135deg, var(--dark-purple) 0%, var(--main-purple) 100%);
     transform: translateY(-2px);
-    box-shadow: 0 5px 10px var(--black-shadow-color);
+    box-shadow: 0 6px 16px var(--shadow);
 }
 
 #transactions-accounts-available-selection-span {
-    color: var(--main-yellow-color);
-    background: var(--main-background-blue);
+    color: var(--white);
+    background: linear-gradient(135deg, var(--main-purple) 0%, var(--dark-purple) 100%);
     text-align: center;
-    border-radius: 8px;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 /* SELECTED ACCOUNT NAVIGATION */
@@ -207,27 +228,28 @@ section input[type="radio"]:checked + label {
 }
 
 #transactions-account-title {
-    background: var(--main-background-blue);
-    color: var(--main-yellow-color);
+    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--light-purple) 100%);
+    color: #fff;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
-    padding: 15px;
+    padding: 18px;
     border-radius: 12px;
     margin-bottom: 10px;
-    text-shadow: 1px 1px 2px var(--black-shadow-color);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
 /* RESULTS SECTION */
 .transactions-operation-result-print {
-    background: var(--white-color);
-    border: 3px solid var(--main-blue-color);
-    border-radius: 12px;
-    margin: 20px;
-    padding: 25px;
+    background: var(--white);
+    border: 3px solid var(--light-purple);
+    border-radius: 16px;
+    margin: 28px 20px 12px 20px;
+    padding: 30px;
     overflow-y: auto;
-    max-height: calc(100vh - 140px);
-    box-shadow: 0 6px 20px var(--black-shadow-color);
+    max-height: calc(100vh - 150px);
+    box-shadow: 0 8px 30px var(--dark-shadow);
 }
 
 .transactions-operation-result-print::-webkit-scrollbar {
@@ -235,17 +257,17 @@ section input[type="radio"]:checked + label {
 }
 
 .transactions-operation-result-print::-webkit-scrollbar-track {
-    background: var(--antiflash-white-background);
+    background: var(--card-bg);
     border-radius: 5px;
 }
 
 .transactions-operation-result-print::-webkit-scrollbar-thumb {
-    background: var(--main-blue-color);
+    background: var(--main-purple);
     border-radius: 5px;
 }
 
 .transactions-operation-result-print::-webkit-scrollbar-thumb:hover {
-    background: var(--background-blue-gradiente);
+    background: var(--dark-purple);
 }
 
 /* FORM ELEMENTS IN RESULTS */
@@ -254,75 +276,75 @@ section input[type="radio"]:checked + label {
     width: 100%;
     padding: 14px;
     font-size: 16px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
     margin-bottom: 15px;
     transition: all 0.3s ease;
-    background: var(--ghost-white-backgroud);
+    background: var(--light-bg);
 }
 
 .transactions-operation-result-print input[type="text"]:focus,
 .transactions-operation-result-print input[type="password"]:focus {
     outline: none;
-    border-color: var(--main-blue-color);
-    background: var(--white-color);
-    box-shadow: 0 0 8px rgba(8, 32, 58, 0.2);
+    border-color: var(--main-purple);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
 }
 
 .transactions-operation-result-print label {
     display: block;
-    font-weight: bold;
-    color: var(--main-blue-color);
+    font-weight: 600;
+    color: var(--dark-purple);
     margin-bottom: 8px;
     margin-top: 15px;
     font-size: 14px;
 }
 
 .transactions-operation-result-print button {
-    background: var(--main-background-blue);
-    color: var(--main-yellow-color);
+    background: linear-gradient(135deg, var(--main-purple) 0%, var(--dark-purple) 100%);
+    color: var(--white);
     border: none;
     padding: 14px 28px;
     font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
+    font-weight: 600;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
     margin: 10px auto;
     display: block;
-    box-shadow: 0 4px 8px var(--black-shadow-color);
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
 .transactions-operation-result-print button:hover {
-    background: linear-gradient(135deg, var(--main-yellow-color) 0%, var(--background-yellow-gradient) 100%);
-    color: var(--main-blue-color);
+    background: linear-gradient(135deg, var(--dark-purple) 0%, var(--main-purple) 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px var(--black-shadow-color);
+    box-shadow: 0 6px 16px var(--shadow);
 }
 
 /* MESSAGES AND SPANS */
 .transactions-operation-result-print span {
     display: block;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 16px;
+    border-radius: 10px;
     margin: 15px 0;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .transactions-operation-result-print span:not([class*="error"]) {
-    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-    color: #155724;
-    border: 2px solid #28a745;
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    color: #065f46;
+    border: 2px solid var(--success-green);
+    font-weight: 500;
 }
 
 /* ERROR MESSAGES */
 .transactions-operation-result-print span[class*="error"],
 .transactions-operation-result-print span[class*="error-msg"] {
-    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%) !important;
-    color: #721c24 !important;
-    border: 2px solid var(--error-red-color) !important;
-    font-weight: bold;
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%) !important;
+    color: #991b1b !important;
+    border: 2px solid var(--error-red) !important;
+    font-weight: 600;
 }
 
 /* TRANSACTION TABLE STYLES */
@@ -330,22 +352,22 @@ section input[type="radio"]:checked + label {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    background: var(--white-color);
+    background: var(--white);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px var(--black-shadow-color);
+    box-shadow: 0 4px 16px var(--shadow);
     table-layout: auto;
 }
 
 .transactions-selected-account-transactions-table thead {
-    background: var(--main-background-blue);
-    color: var(--main-yellow-color);
+    background: linear-gradient(135deg, var(--main-purple) 0%, var(--dark-purple) 100%);
+    color: var(--white);
 }
 
 .transactions-selected-account-transactions-table th {
-    padding: 15px 12px;
+    padding: 16px 12px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -353,15 +375,15 @@ section input[type="radio"]:checked + label {
 }
 
 .transactions-selected-account-transactions-table td {
-    padding: 12px;
-    border-bottom: 1px solid var(--bright-gray-border-color);
+    padding: 14px;
+    border-bottom: 1px solid var(--border-color);
     font-size: 14px;
     vertical-align: top;
 }
 
 .transactions-selected-account-transactions-table td:nth-child(1) {
     font-size: 12px;
-    line-height: 1.3;
+    line-height: 1.4;
     width: 180px;
     min-width: 180px;
 }
@@ -374,124 +396,76 @@ section input[type="radio"]:checked + label {
 }
 
 .transactions-selected-account-transactions-table td:nth-child(3) {
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
     white-space: nowrap;
     min-width: 120px;
-    
 }
 
 .transactions-selected-account-transactions-table td:nth-child(4) {
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
     white-space: nowrap;
     min-width: 120px;
 }
 
 .transactions-selected-account-transactions-table tbody tr:nth-child(even) {
-    background-color: var(--ghost-white-backgroud);
+    background-color: var(--card-bg);
 }
 
 .transactions-selected-account-transactions-table tbody tr:hover {
-    background-color: var(--pale-blue-background-color);
+    background-color: var(--hover-bg);
     transition: background-color 0.3s ease;
 }
 
-/* For JavaScript detection method - detecting by transaction type text */
 .transactions-selected-account-transactions-table tbody tr:has(td:nth-child(2):contains("Consignación")) td:nth-child(3),
 .transactions-selected-account-transactions-table tbody tr:has(td:nth-child(2):contains("Recepción")) td:nth-child(3) {
-    color: #28a745 !important;
-    background-color: rgba(40, 167, 69, 0.15) !important;
-    border-radius: 6px;
+    color: var(--success-green) !important;
+    background-color: rgba(16, 185, 129, 0.15) !important;
+    border-radius: 8px;
 }
 
 .transactions-selected-account-transactions-table tbody tr:has(td:nth-child(2):contains("Retiro")) td:nth-child(3),
 .transactions-selected-account-transactions-table tbody tr:has(td:nth-child(2):contains("Envio")) td:nth-child(3) {
-    color: var(--error-red-color) !important;
-    background-color: rgba(220, 53, 69, 0.15) !important;
-    border-radius: 6px;
+    color: var(--error-red) !important;
+    background-color: rgba(239, 68, 68, 0.15) !important;
+    border-radius: 8px;
 }
 
 /* LOGOUT BUTTON */
-#userPage-logout {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, var(--error-red-color) 0%, #c82333 100%);
-    color: var(--white-color);
+#transactions-user-header .header-actions #userPage-logout {
+    position: static;
+    background: linear-gradient(135deg, var(--error-red) 0%, #dc2626 100%);
+    color: var(--white);
     border: none;
-    padding: 12px 20px;
+    padding: 12px 24px;
     font-size: 14px;
-    font-weight: bold;
-    border-radius: 8px;
+    font-weight: 600;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    z-index: 1;
 }
 
 #userPage-logout:hover {
-    background: linear-gradient(135deg, #c82333 0%, #a71e2a 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px var(--black-shadow-color);
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 1200px) {
-    .transactions-main-section {
-        grid-template-columns: 250px 1fr 1.5fr;
-    }
-    
-    #transactions-user-title {
-        font-size: 24px;
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px;
-    }
-    
-    .transactions-main-section {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr;
-        gap: 10px;
-    }
-    
-    nav {
-        max-height: 200px;
-        border-right: none;
-        border-bottom: 2px solid var(--main-blue-color);
-    }
-    
-    .transactions-operation-result-print {
-        margin: 10px;
-        padding: 15px;
-        max-height: calc(100vh - 300px);
-    }
-    
-    #userPage-logout {
-        bottom: 10px;
-        right: 10px;
-        padding: 10px 15px;
-        font-size: 12px;
-    }
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.5);
 }
 
 /* FORM FIELD STYLING FOR DYNAMIC ELEMENTS */
 .form-field {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 15px;
 }
 
 .form-field label {
-    min-width: 120px;
-    font-weight: bold;
-    color: var(--main-blue-color);
+    min-width: 140px;
+    font-weight: 600;
+    color: var(--dark-purple);
     margin: 0;
 }
 
@@ -500,11 +474,11 @@ section input[type="radio"]:checked + label {
 }
 
 /* INPUT CURRENCY STYLING */
-input[class*="deposit"], 
-input[class*="withdraw"], 
+input[class*="deposit"],
+input[class*="withdraw"],
 input[class*="transfer"] {
     text-align: right;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 18px;
 }
 
@@ -528,4 +502,64 @@ input[class*="transfer"] {
 
 .transactions-operation-result-print > * {
     animation: slideInFromTop 0.3s ease-out;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+    .transactions-main-section {
+        grid-template-columns: 250px 1fr 1.5fr;
+    }
+
+    #transactions-user-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .transactions-main-section {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+        gap: 10px;
+    }
+
+    nav {
+        max-height: 200px;
+        border-right: none;
+        border-bottom: 3px solid var(--light-purple);
+    }
+
+    .transactions-operation-result-print {
+        margin: 10px;
+        padding: 20px;
+        max-height: calc(100vh - 300px);
+    }
+
+    #userPage-logout {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #transactions-user-title {
+        font-size: 20px;
+    }
+
+    .transactions-operation-result-print {
+        padding: 15px;
+    }
+
+    .transactions-selected-account-transactions-table th,
+    .transactions-selected-account-transactions-table td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
 }
