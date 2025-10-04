@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <main class="login-main-container">
+        <picture class="login-logo-big">
+             <img src="./imgs/logo_js.jpg" alt="Bank Logo">
+        </picture>       
+        <aside class="login-aside">
+            <h1>Bienvenido al Banco JS_DOM</h1>
+            <br>
+            <span>Usuario</span>
+            <input type="text" id="user-login">
+            <label id="login-user-error" class="error-message"></label>
+            <br>
+            <span>Contraseña</span>
+            <input type="password" id="password-login">
+            <label id="login-password-error" class="error-message"></label>
+            <br>
+            <div class="login-button-section">
+                <button id="main-login-button" class="login-option-button">Iniciar</button>
+                <button id="main-register-button" class="login-option-button">Registrar</button>
+                <button id="main-clean-button" class="login-option-button">Limpiar</button>
+            </div> 
+        </aside>
+        <div id="main-register-user" class = "main-new-user">
+            <div class="register-user-content">
+                <span class="cancel-new-user">&times;</span>
+                <h2>Nuevo Usuario</h2>
+                <form id="new-user-data">
+                    <label for="fname" >Nombre:</label>
+                    <input type="text" id="fname">
+                    <label id="fname-error" class="error-message"></label>
+                    <label for="lname">Apellido</label>
+                    <input type="text" id="lname">                    
+                    <label id="lname-error" class="error-message"></label>
+                     <label for="address">Dirección</label>
+                    <input type="text" id="address">                    
+                    <label id="address-error" class="error-message"></label>
+                    <label for="username">Nombre Usuario</label>
+                    <input type="text" id="username">
+                    <label id="username-error" class="error-message"></label>
+                    <label for="documentid">Numero Identificacion</label>
+                    <input type="text" id="documentid">
+                    <label id="documentid-error" class="error-message"></label>
+                    <label for="new-password">Contraseña</label>
+                    <input type="password" id="new-password">
+                    <label id="new-password-error" class="error-message"></label>
+                    <label for="confirm-new-password">Confirme Contraseña</label>
+                    <input type="password" id="confirm-new-password">
+                    <label id="confirm-new-password-error" class="error-message"></label>
+                    <input type="submit" id = "new-user-submit" value="Registrar Nuevo Usuario">                   
+                </form>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>

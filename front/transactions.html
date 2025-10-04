@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style_transactions.css">
+    <title>Transactions</title>
+</head>
+<body>
+
+    <header id="transactions-user-header">
+        <h1 id="transactions-user-title"></h1>
+        <button id="transactions-user-update-data-button">Actualizar datos personales</button>
+    </header>
+
+    <main class="transactions-main-section">
+        <nav id="transactions-accounts-nav">
+            <span id="transactions-accounts-available-selection-span">Cuentas Ahorros</span>
+            <section id="transactions-saving-available-selection"></section>
+            <button id="transactions-request-saving-button">Solicitar Cuenta Ahorros</button>
+            <span id="transactions-accounts-available-selection-span">Cuentas Corrientes</span>
+            <section id="transactions-current-available-selection"></section>
+            <button id="transactions-request-current-button">Solicitar Cuenta Corriente</button>
+        </nav>
+
+        <nav id="transactions-selected-account-nav">
+            <span id="transactions-account-title">Transacciones</span>
+            <button id="transactions-account-deposit-button">Consignar</button>
+            <button id="transactions-account-withdrawal-button">Retirar</button>
+            <button id="transactions-account-transfer-button">Transferir a otra cuenta</button>
+            <button id="transactions-account-balance-button">Consultar saldo</button>
+            <button id="transactions-account-transactions-view-button">Consultar movimientos</button>
+        </nav>
+
+        <section class="transactions-operation-result-print" id="transactions-operation-result-print-result"></section>
+    </main>
+    <button id="userPage-logout">Cerrar Sesión</button>
+    <script type="module" src="./js/userPage.js"></script>
+    <script type="module" src="./js/createNewAccount.js"></script>
+</body>
+</html>
