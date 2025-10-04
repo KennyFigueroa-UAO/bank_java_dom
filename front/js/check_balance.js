@@ -1,19 +1,20 @@
+// check_balance.js - Lógica para mostrar el saldo de la cuenta seleccionada
 import { account_selected } from "./userPage.js";
 
+// Formatea un número como moneda USD
 function currencyFormat(textNumber){
-            // textNumber = textNumber.replace(',','.')
-            const formatter = new Intl.NumberFormat('en-US',{
-                style:'currency',
-                currency:'USD',
-                minimumFractionDigits:0,
-                maximumFractionDigits:20,
-            })
-            const formatterNumber = formatter.format(textNumber)
-            return formatterNumber
-        }
+    const formatter = new Intl.NumberFormat('en-US',{
+        style:'currency',
+        currency:'USD',
+        minimumFractionDigits:0,
+        maximumFractionDigits:20,
+    })
+    const formatterNumber = formatter.format(textNumber)
+    return formatterNumber
+}
 
+// Muestra el saldo de la cuenta seleccionada o un mensaje si no hay selección
 function balanceChek(){
-    
     const operation_result = document.getElementById('transactions-operation-result-print-result')
     operation_result.innerHTML = ''
     const balance_result_print = document.createElement('span');
@@ -26,4 +27,5 @@ function balanceChek(){
     }
 }
 
+// Asigna el evento al botón de consultar saldo
 document.getElementById('transactions-account-balance-button').addEventListener('click',()=>balanceChek())

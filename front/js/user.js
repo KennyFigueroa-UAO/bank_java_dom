@@ -1,7 +1,12 @@
 
+// user.js - Clase para representar y actualizar datos de usuario
+
+// Base de usuarios desde localStorage
 let users_base = JSON.parse(localStorage.getItem('repo_json/users.json'))
 
+// Clase User para manejar datos y acciones del usuario
 class User{
+    // Constructor: inicializa los datos principales del usuario
     constructor(id,fname,lname,password,username,address){
         this.id = id
         this.fname = fname
@@ -11,10 +16,12 @@ class User{
         this.address = address
     }
 
+    // Verifica si la contraseña actual ingresada es correcta
     checkCurrentPassword(currentPasswordInput){
         return currentPasswordInput == this.password
     }
 
+    // Actualiza la contraseña del usuario y muestra mensaje de éxito
     updatePassword(newPassword,operation_result){
         let user_to_update = users_base.find(record =>record.user_id==this.id)
         user_to_update.user_password = newPassword
@@ -24,9 +31,9 @@ class User{
         update_password_success_span.textContent = `Su contraseña ha sido actualizada correctamente`
         update_password_success_span.className = 'transactions-user-update-password-confirmation-span'
         operation_result.appendChild(update_password_success_span)
-        
     }
 
+    // Actualiza los datos personales del usuario y muestra mensaje de éxito
     updateUserData(fnameUpdate,lnameUpdate,addressUpdate,operation_result){
         let user_to_update = users_base.find(record =>record.user_id==this.id)
         user_to_update.user_fname = fnameUpdate 
@@ -41,7 +48,6 @@ class User{
         update_user_data_success_span.className = 'transactions-user-update-user-data-confirmation-span'
         operation_result.appendChild(update_user_data_success_span)
     }
-
 }
 
 export default User
