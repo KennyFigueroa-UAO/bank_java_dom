@@ -213,12 +213,23 @@ body {
 
 /*
     Modal de registro de nuevo usuario
-    Centrado, con scroll interno si el contenido es largo
+    Incluye backdrop para ocultar el contenido de fondo
 */
 .main-new-user {
         display: none;
         position: fixed;
         z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+}
+
+/* Contenido del modal centrado */
+.register-user-content {
+        position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -227,24 +238,25 @@ body {
         width: min(95%, 560px);
         max-width: 560px;
         border-radius: 20px;
-        box-shadow: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         max-height: 90vh;
         overflow-y: auto;
+        position: relative;
 }
 
-/* Scrollbar personalizado para el modal de registro */
-.main-new-user::-webkit-scrollbar {
+/* Scrollbar personalizado para el contenido del modal de registro */
+.register-user-content::-webkit-scrollbar {
     width: 8px;
 }
 
-/* Track del scrollbar en el modal */
-.main-new-user::-webkit-scrollbar-track {
+/* Track del scrollbar en el contenido del modal */
+.register-user-content::-webkit-scrollbar-track {
     background: var(--light-bg);
     border-radius: 10px;
 }
 
-/* Pulgar del scrollbar en el modal */
-.main-new-user::-webkit-scrollbar-thumb {
+/* Pulgar del scrollbar en el contenido del modal */
+.register-user-content::-webkit-scrollbar-thumb {
     background: var(--main-purple);
     border-radius: 10px;
 }
@@ -401,7 +413,7 @@ label {
     .login-logo-big img {
         width: clamp(100px, 30vw, 220px);
     }
-    .main-new-user {
+    .register-user-content {
         width: 94%;
         padding: 20px;
     }
