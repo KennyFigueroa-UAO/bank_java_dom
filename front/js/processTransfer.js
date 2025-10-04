@@ -143,7 +143,7 @@ function processTransfer(){
                 }
                 // transferButton.remove();
                 // transferInput.remove();
-
+                accounts_users_base = JSON.parse(localStorage.getItem('repo_json/users_accounts.json'))
                 let validAccountToTransfer = accounts_users_base.some(record => record.account_accountnumber.toLowerCase()==accountToTransferSavedValue.toLowerCase())
 
                 if (!validAccountToTransfer){
