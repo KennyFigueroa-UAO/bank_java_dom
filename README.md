@@ -2,6 +2,14 @@
 
 Sistema web de gestión bancaria desarrollado con JavaScript que permite a los usuarios crear y administrar cuentas de ahorro y corriente, realizar transacciones y consultar movimientos.
 
+# CESDE FRONT END I
+Segunda entrega cajero JavaScript y DOM, presentado por:
+
+- Ana Maria Mestra Perez
+- Elizabeth Mejia Ochoa
+- Laura Ehileen Fernández Urrego
+- Kenny Alberto Figueroa Ramirez
+- 
 ## Características Principales
 
 - Registro y autenticación de usuarios
@@ -365,8 +373,6 @@ export default CurrentAccount;
 ## Licencia
 
 Este proyecto es de código abierto y está disponible bajo la [Licencia MIT](LICENSE).
-
-## Contacto
 
 Nombre del Proyecto: Cajero JS_DOM
 Repositorio: [GitHub](https://github.com/KennyFigueroa-UAO/bank_java_dom)
