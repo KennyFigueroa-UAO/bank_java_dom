@@ -47,21 +47,35 @@ class NewUserRegister {
     }
 }
 
+// Función para cerrar el modal y limpiar campos
+function closeModal() {
+    new_user_registration.style.display = "none";
+    document.getElementById('new-user-data').reset();
+    fnameError.style.display = 'none';
+    lnameError.style.display = 'none';
+    addressError.style.display = 'none';
+    usernameError.style.display = 'none';
+    documentidError.style.display = 'none';
+    newPasswordError.style.display = 'none';
+    confirmNewPasswordError.style.display = 'none';
+}
+
 // Lógica para cerrar el modal de registro y limpiar campos
 if (window.location.pathname.includes('index.html')) {
     let new_user_registration = document.getElementById('main-register-user');
     let cancel_new_user_button = document.getElementsByClassName('cancel-new-user')[0];
+    
+    // Cerrar al hacer clic en el botón X
     if (cancel_new_user_button) {
-        cancel_new_user_button.onclick = function () {
-            new_user_registration.style.display = "none";
-            document.getElementById('new-user-data').reset();
-            fnameError.style.display = 'none';
-            lnameError.style.display = 'none';
-            addressError.style.display = 'none';
-            usernameError.style.display = 'none';
-            documentidError.style.display = 'none';
-            newPasswordError.style.display = 'none';
-            confirmNewPasswordError.style.display = 'none';
+        cancel_new_user_button.onclick = closeModal;
+    }
+    
+    // Cerrar al hacer clic en el backdrop (fuera del contenido del modal)
+    if (new_user_registration) {
+        new_user_registration.onclick = function(event) {
+            if (event.target === new_user_registration) {
+                closeModal();
+            }
         };
     }
 }
