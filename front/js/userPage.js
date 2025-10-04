@@ -1,3 +1,5 @@
+// userPage.js - Lógica de la página de usuario y selección de cuentas
+
 import CurrentAccount from "./accountcurrent.js"
 import SavingAccount from "./accountsaving.js"
 import User from "./user.js"
@@ -8,10 +10,10 @@ import './processTransfer.js'
 import './check_transactions.js'
 import './updateuserdata.js'
 
+// Base de cuentas de usuario desde localStorage
 export let users_accounts_base = JSON.parse(localStorage.getItem('repo_json/users_accounts.json'))
 
-// cuentas
-
+// Redirección si el usuario no está logueado
 window.onload = function (){
     if(window.location.pathname.includes('transactions.html')){
         const loggedIn = sessionStorage.getItem('loggedIn')
@@ -21,51 +23,50 @@ window.onload = function (){
     }
 }
 
+// Base de usuarios y datos del usuario logueado
 let users_base = JSON.parse(localStorage.getItem('repo_json/users.json'))
-
 export const logged_user_id = sessionStorage.getItem('userID')
 export let selected_account_id = null
 export let account_selected = null
 
-// Las variables let son exportadas read only, esto permite cambiar la variable desde otros modulos
-
+// Permite cambiar la cuenta seleccionada desde otros módulos
 export function setAccountSelected(value) {
     account_selected = value
 }
 
+// Instancia del usuario logueado
 const user_db = users_base.find(record => record.user_id==logged_user_id)
-
 export const logged_user = new User(user_db.user_id,user_db.user_fname,user_db.user_lname,
                     user_db.user_password,user_db.user_username,user_db.user_address
                 )  
 
-
-
+// Muestra el nombre del usuario en la página
 userTitle(logged_user)
 
-
-
+// Cierra sesión y redirige al login
 function log_out (){
     sessionStorage.removeItem('loggedIn')
     sessionStorage.removeItem('userID')
     window.location.href = 'index.html'
 }
 
+// Asigna evento al botón de logout
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('userPage-logout').addEventListener('click', () => log_out());
 })
 
+// Cambia el título de bienvenida con el nombre del usuario
 export function userTitle(user){       
     const user_title = document.getElementById('transactions-user-title')
     user_title.textContent = `Bienvenido ${user.fname} ${user.lname}`    
 }
 
-
+// Crea las opciones de cuentas disponibles (ahorro y corriente)
 export function createAccountsAvailable(){
-
     const savings_selections = document.getElementById('transactions-saving-available-selection')
     savings_selections.innerHTML = ''
     const updated_account = JSON.parse(localStorage.getItem('repo_json/users_accounts.json'))
+    // Filtra cuentas de ahorro
     const savings_account = updated_account.filter(record => 
         record.account_userid==logged_user_id &&
         record.account_accountnumber.startsWith("SA")  
@@ -80,14 +81,11 @@ export function createAccountsAvailable(){
         const savingLabelInput = document.createElement('label')
         savingLabelInput.textContent = account.account_accountnumber
         savingLabelInput.htmlFor = account.account_id
-        //console.log(account.id);
-        //console.log(account.nroCuenta);
         optionDivSavings.appendChild(savingRadioInput)
         optionDivSavings.appendChild(savingLabelInput)
         savings_selections.appendChild(optionDivSavings)
-
     })
-    
+    // Filtra cuentas corrientes
     const currents_selections = document.getElementById('transactions-current-available-selection')
     currents_selections.innerHTML = ''
     const currents_account = updated_account.filter(record => 
@@ -104,15 +102,15 @@ export function createAccountsAvailable(){
         const currentLabelInput = document.createElement('label')
         currentLabelInput.textContent = account.account_accountnumber
         currentLabelInput.htmlFor = account.account_id
-        //console.log(account.id);
-        //console.log(account.nroCuenta);
         optionDivCurrents.appendChild(currentRadioInput)
         optionDivCurrents.appendChild(currentLabelInput)
         currents_selections.appendChild(optionDivCurrents)
     })
+    // Asigna eventos a las opciones de cuenta
     account_selection()
 }
 
+// Asigna eventos a los radio buttons de cuentas para seleccionar la activa
 export function account_selection(){
     const account_options = document.getElementsByName('transactions-select-account')
     account_options.forEach(selection => {
@@ -130,5 +128,6 @@ export function account_selection(){
         })
     })
 }
-    
+
+// Inicializa la lista de cuentas disponibles al cargar la página
 createAccountsAvailable()

@@ -1,64 +1,97 @@
+<!--
+  Archivo principal HTML para la página de login y registro del banco
+  Incluye el formulario de inicio de sesión, el modal de registro y los elementos decorativos
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enlace a los estilos principales -->
     <link rel="stylesheet" href="./css/style.css">
-    <title>Login</title>
+    <title>Banco JS_DOM - Login</title>
 </head>
 <body>
+    <!-- Burbujas de fondo decorativas -->
+    <div class="background-bubbles">
+        <span class="bubble" style="top:5%; left:8%; width:180px; height:180px; background:rgba(167,139,250,0.32);"></span>
+        <span class="bubble" style="top:60%; left:10%; width:120px; height:120px; background:rgba(124,58,237,0.28);"></span>
+        <span class="bubble" style="top:15%; left:70%; width:140px; height:140px; background:rgba(236,72,153,0.28);"></span>
+        <span class="bubble" style="top:80%; left:80%; width:200px; height:200px; background:rgba(167,139,250,0.28);"></span>
+        <span class="bubble" style="top:40%; left:50%; width:100px; height:100px; background:rgba(124,58,237,0.22);"></span>
+        <span class="bubble" style="top:75%; left:30%; width:90px; height:90px; background:rgba(236,72,153,0.22);"></span>
+        <span class="bubble" style="top:20%; left:40%; width:70px; height:70px; background:rgba(167,139,250,0.20);"></span>
+        <span class="bubble" style="top:10%; left:85%; width:110px; height:110px; background:rgba(124,58,237,0.20);"></span>
+        <span class="bubble" style="top:60%; left:60%; width:80px; height:80px; background:rgba(236,72,153,0.20);"></span>
+        <span class="bubble" style="top:30%; left:25%; width:100px; height:100px; background:rgba(236,72,153,0.22);"></span>
+        <span class="bubble" style="top:85%; left:15%; width:120px; height:120px; background:rgba(167,139,250,0.22);"></span>
+        <span class="bubble" style="top:50%; left:80%; width:90px; height:90px; background:rgba(124,58,237,0.20);"></span>
+        <span class="bubble" style="top:10%; left:50%; width:70px; height:70px; background:rgba(236,72,153,0.20);"></span>
+        <span class="bubble" style="top:70%; left:70%; width:110px; height:110px; background:rgba(167,139,250,0.20);"></span>
+    </div>
+    <!-- Contenedor principal de login y registro -->
     <main class="login-main-container">
-        <picture class="login-logo-big">
-             <img src="./imgs/logo_js.png" alt="Bank Logo">
-        </picture>       
-        <aside class="login-aside">
-            <h1>Bienvenido al Banco JS_DOM</h1>
-            <br>
+        <!-- Panel de login -->
+        <aside class="login-aside login-aside-unified">
+            <!-- Logo del banco -->
+            <picture class="login-logo-big">
+                <img src="./imgs/Gemini_Generated_Image_ubphuyubphuyubph.png" alt="Bank Logo">
+            </picture>
+            <h1>Bienvenido</h1>
             <span>Usuario</span>
-            <input type="text" id="user-login">
+            <input type="text" id="user-login" placeholder="Ingresa tu usuario">
             <label id="login-user-error" class="error-message"></label>
-            <br>
             <span>Contraseña</span>
-            <input type="password" id="password-login">
+            <input type="password" id="password-login" placeholder="Ingresa tu contraseña">
             <label id="login-password-error" class="error-message"></label>
-            <br>
+            <!-- Botones de acción -->
             <div class="login-button-section">
                 <button id="main-login-button" class="login-option-button">Iniciar</button>
                 <button id="main-register-button" class="login-option-button">Registrar</button>
                 <button id="main-clean-button" class="login-option-button">Limpiar</button>
-            </div> 
+            </div>
         </aside>
-        <div id="main-register-user" class = "main-new-user">
+        <!-- Modal de registro de nuevo usuario (oculto por defecto) -->
+        <div id="main-register-user" class="main-new-user">
             <div class="register-user-content">
                 <span class="cancel-new-user">&times;</span>
                 <h2>Nuevo Usuario</h2>
                 <form id="new-user-data">
-                    <label for="fname" >Nombre:</label>
-                    <input type="text" id="fname">
+                    <!-- Campo nombre -->
+                    <label for="fname">Nombre:</label>
+                    <input type="text" id="fname" placeholder="Tu nombre">
                     <label id="fname-error" class="error-message"></label>
-                    <label for="lname">Apellido</label>
-                    <input type="text" id="lname">                    
+                    <!-- Campo apellido -->
+                    <label for="lname">Apellido:</label>
+                    <input type="text" id="lname" placeholder="Tu apellido">                    
                     <label id="lname-error" class="error-message"></label>
-                     <label for="address">Dirección</label>
-                    <input type="text" id="address">                    
+                    <!-- Campo dirección -->
+                    <label for="address">Dirección:</label>
+                    <input type="text" id="address" placeholder="Tu dirección">                    
                     <label id="address-error" class="error-message"></label>
-                    <label for="username">Nombre Usuario</label>
-                    <input type="text" id="username">
+                    <!-- Campo nombre de usuario -->
+                    <label for="username">Nombre Usuario:</label>
+                    <input type="text" id="username" placeholder="Elige un nombre de usuario">
                     <label id="username-error" class="error-message"></label>
-                    <label for="documentid">Numero Identificacion</label>
-                    <input type="text" id="documentid">
+                    <!-- Campo documento -->
+                    <label for="documentid">Número Identificación:</label>
+                    <input type="text" id="documentid" placeholder="Tu número de identificación">
                     <label id="documentid-error" class="error-message"></label>
-                    <label for="new-password">Contraseña</label>
-                    <input type="password" id="new-password">
+                    <!-- Campo contraseña -->
+                    <label for="new-password">Contraseña:</label>
+                    <input type="password" id="new-password" placeholder="Crea una contraseña">
                     <label id="new-password-error" class="error-message"></label>
-                    <label for="confirm-new-password">Confirme Contraseña</label>
-                    <input type="password" id="confirm-new-password">
+                    <!-- Campo confirmar contraseña -->
+                    <label for="confirm-new-password">Confirme Contraseña:</label>
+                    <input type="password" id="confirm-new-password" placeholder="Confirma tu contraseña">
                     <label id="confirm-new-password-error" class="error-message"></label>
-                    <input type="submit" id = "new-user-submit" value="Registrar Nuevo Usuario">                   
+                    <!-- Botón de registro -->
+                    <input type="submit" id="new-user-submit" value="Registrar Nuevo Usuario">                   
                 </form>
             </div>
         </div>
     </main>
+    <!-- Script principal de la app -->
     <script type="module" src="./js/main.js"></script>
 </body>
 </html>

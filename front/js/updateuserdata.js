@@ -273,7 +273,7 @@ function update_user_data(operation_result,update_user_data_button,update_passwo
             
             if (!new_address_input_value){
                 new_address_input_error = document.createElement('span')
-                new_address_input_error.textContent = `La dirección no debe ir en blanco, por favor ingrese una nueva dirección`
+                new_address_input_error.textContent = `La dirección no debe ir en blanco, por favor ingrese una nuevo dirección`
                 new_address_input_error.className = 'transactions-user-new-address-error-msg'
                 new_address_input.insertAdjacentElement('afterend',new_address_input_error)
                 new_address_input.value = logged_user.address
@@ -305,7 +305,7 @@ function update_user_data(operation_result,update_user_data_button,update_passwo
             }
             if (new_address_input_value.length<10){
                 new_address_input_error = document.createElement('span')
-                new_address_input_error.textContent = `La dirección ${new_address_input_value} es muy corta, por favor ingrese una dirección valida`
+                new_address_input_error.textContent = `La dirección ${new_address_input_value} es muy corto, por favor ingrese una dirección valido`
                 new_address_input_error.className = 'transactions-user-new-address-error-msg'
                 new_address_input.insertAdjacentElement('afterend',new_address_input_error)
                 new_address_input.value = logged_user.address
