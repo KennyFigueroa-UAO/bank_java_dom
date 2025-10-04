@@ -1,191 +1,434 @@
-:root {
-    --main-blue-color:#08203a;
-    --main-yellow-color: #ffcf27; 
-}
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/*
+--------------------------------------------------
+    Estilos principales y responsivos para el login
+    Cada bloque tiene comentarios explicativos
+--------------------------------------------------
+*/
 
-html, body {
-    height: 100%; 
-    width: 100%; 
+/* Fondo decorativo de burbujas, no interactúa con el usuario */
+.background-bubbles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
 }
+/* Cada burbuja decorativa del fondo */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(12px);
+    opacity: 1;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
 
+/*
+    Variables CSS para colores y sombras principales del tema
+    Se usan en todo el archivo para mantener consistencia
+*/
+:root {
+        --main-purple: #7c3aed;
+        --dark-purple: #5b21b6;
+        --light-purple: #a78bfa;
+        --accent-pink: #ec4899;
+        --background-gradient-start: #1e1b4b;
+        --background-gradient-end: #312e81;
+        --white: #ffffff;
+        --light-bg: #f8f7ff;
+        --error-red: #ef4444;
+        --shadow: rgba(124, 58, 237, 0.3);
+}
+
+/*
+    Reset de estilos: elimina márgenes y paddings por defecto,
+    y hace que el box-sizing sea border-box para todos los elementos
+*/
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+}
+
+/*
+    El body y html ocupan todo el alto y ancho de la pantalla
+    y permiten scroll si el contenido no cabe (importante para móviles)
+*/
+html, body {
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+}
+
+/*
+    Centra el contenido principal vertical y horizontalmente
+    Aplica el fondo degradado y la fuente base
+*/
 body {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    min-height: 100vh; 
-    background-color: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, var(--background-gradient-start) 0%, var(--background-gradient-end) 50%, var(--dark-purple) 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        -webkit-font-smoothing: antialiased;
 }
 
+/*
+    Contenedor principal del login y registro
+    Centra el contenido y permite crecer en altura
+*/
 .login-main-container {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    width: 100%;
-    height: 100vh; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 100vh;
+        flex-direction: column;
+        gap: 0;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
 }
 
+/* Contenedor del logo grande */
 .login-logo-big {
-    flex: 3;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    margin-bottom: 18px;
 }
 
+/* Imagen del logo principal, sin sombra para camuflar con fondo blanco */
 .login-logo-big img {
-    object-fit: cover; 
-    width: 100%;
-    height: 100%;
+    max-width: 300px;
+    width: clamp(120px, 35vw, 300px);
+    height: auto;
+    filter: none;
+    object-fit: contain;
 }
 
+/*
+    Tarjeta blanca del login (formulario)
+    Bordes redondeados, padding y ancho máximo
+*/
 .login-aside {
-    flex: 1;
-    background-color: aliceblue;
-    padding: 20px;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center; 
-    text-align: center;
-    border-radius: 8px;
-    height: 100%; 
+        background: var(--white);
+        padding: 48px 48px 40px 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        border-radius: 24px;
+        max-width: 520px;
+        width: 100%;
+        min-height: 420px;
+        box-shadow: none;
+        gap: 0;
 }
 
+/* Espaciado extra para la versión unificada del aside */
+.login-aside-unified {
+    gap: 10px;
+    padding-top: 32px;
+}
+
+/* Título principal del login */
+.login-aside h1 {
+    color: var(--main-purple);
+    font-size: clamp(18px, 2.5vw, 28px);
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+/* Etiquetas de los campos (usuario, contraseña) */
+.login-aside span {
+    color: var(--dark-purple);
+    font-weight: 600;
+    font-size: 14px;
+    align-self: flex-start;
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+
+/* Inputs de usuario y contraseña */
 .login-aside input {
-    text-align: center;
+    width: 100%;
+    padding: 12px 14px;
+    font-size: clamp(14px, 2vw, 16px);
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+    background: var(--light-bg);
 }
 
-.login-button-section{
+/* Efecto visual al enfocar los inputs */
+.login-aside input:focus {
+    outline: none;
+    border-color: var(--main-purple);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+/* Contenedor de los botones de login, registro y limpiar */
+.login-button-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;    
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
 }
 
+/* Estilo de los botones principales (login, registro, limpiar) */
 .login-option-button {
-    background-color:var(--main-blue-color);
-    color: var(--main-yellow-color);
+    background: linear-gradient(135deg, var(--main-purple) 0%, var(--dark-purple) 100%);
+    color: var(--white);
     border: none;
-    padding: 15px;
+    padding: 14px 20px;
     font-size: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.main-new-user {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    width: 90%; /* Ajustado para que ocupe menos espacio */
-    max-width: 500px; /* Mantener un tamaño máximo */
+    font-weight: 600;
     border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    max-height: 80vh; /* Asegura que el formulario no exceda el 80% de la altura de la pantalla */
-    
-    flex-direction: column;
-    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow);
 }
 
+/* Efecto hover en los botones principales */
+.login-option-button:hover {
+    background: linear-gradient(135deg, var(--dark-purple) 0%, var(--main-purple) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow);
+}
+
+/* Efecto al presionar el botón */
+.login-option-button:active {
+    transform: translateY(0);
+}
+
+/*
+    Modal de registro de nuevo usuario
+    Centrado, con scroll interno si el contenido es largo
+*/
+.main-new-user {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--white);
+        padding: 30px;
+        width: min(95%, 560px);
+        max-width: 560px;
+        border-radius: 20px;
+        box-shadow: none;
+        max-height: 90vh;
+        overflow-y: auto;
+}
+
+/* Scrollbar personalizado para el modal de registro */
+.main-new-user::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track del scrollbar en el modal */
+.main-new-user::-webkit-scrollbar-track {
+    background: var(--light-bg);
+    border-radius: 10px;
+}
+
+/* Pulgar del scrollbar en el modal */
+.main-new-user::-webkit-scrollbar-thumb {
+    background: var(--main-purple);
+    border-radius: 10px;
+}
+
+/* Título del modal de registro */
 .register-user-content h2 {
     text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: 28px;
+    color: var(--main-purple);
+    margin-bottom: 25px;
+    font-weight: 700;
 }
 
+/* Botón para cerrar el modal de registro */
 .cancel-new-user {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    color: var(--main-yellow-color);
-    background-color:var(--main-blue-color);
+    top: 12px;
+    right: 12px;
+    font-size: 24px;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--accent-pink) 0%, #dc2626 100%);
     border: none;
-    padding: 5px 10px;
+    padding: 6px 10px;
     cursor: pointer;
-    border-radius: 25%;
+    border-radius: 50%;
     transition: all 0.3s ease;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
 }
 
+/* Efecto hover en el botón de cerrar modal */
 .cancel-new-user:hover {
-    background-color: var(--main-yellow-color);
-    color:var(--main-blue-color);
-    transform: scale(1.1);
+    background: linear-gradient(135deg, #dc2626 0%, var(--accent-pink) 100%);
 }
 
+/* Etiquetas de los campos del formulario */
 label {
     font-size: 14px;
-    font-weight: bold;
-    color: #444;
-    margin-bottom: 1px;
+    font-weight: 600;
+    color: var(--dark-purple);
+    margin-bottom: 6px;
+    margin-top: 12px;
     display: block;
+    text-align: left;
 }
 
+/* Inputs del formulario de registro */
 #new-user-data input[type="text"],
 #new-user-data input[type="password"] {
     width: 100%;
-    padding: px;
-    font-size: 12px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px; /* Ajustado para evitar el exceso de espacio */
+    padding: 12px;
+    font-size: 14px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 8px;
     box-sizing: border-box;
+    background: var(--light-bg);
+    transition: all 0.3s ease;
 }
 
+/* Efecto al enfocar los inputs del registro */
+#new-user-data input[type="text"]:focus,
+#new-user-data input[type="password"]:focus {
+    outline: none;
+    border-color: var(--main-purple);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+/* Mensajes de error debajo de los inputs */
 .error-message {
-    color: red;
-    font-size: 10px;
+    color: var(--error-red);
+    font-size: 12px;
     display: block;
     margin-top: -5px;
-    margin-bottom: 1px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: 500;
 }
 
-#login-user-error ,
+/* Ajuste de margen para mensajes de error en login */
+#login-user-error,
 #login-password-error {
     margin-top: 0;
 }
 
+/* Botón para enviar el formulario de registro */
 #new-user-submit {
     width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    background-color:var(--main-blue-color);
-    color: var(--main-yellow-color);
+    padding: 14px;
+    font-size: 16px;
+    background: linear-gradient(135deg, var(--main-purple) 0%, var(--dark-purple) 100%);
+    color: var(--white);
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 15px; /* Añadir margen superior para separar del contenido */
+    margin-top: 20px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px var(--shadow);
 }
 
+/* Efecto hover en el botón de registro */
 #new-user-submit:hover {
-    background-color: var(--main-yellow-color);
-    color:var(--main-blue-color);
-    transform: translateY(-3px);
+    background: linear-gradient(135deg, var(--dark-purple) 0%, var(--main-purple) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow);
 }
 
+/* Efecto al presionar el botón de registro */
+#new-user-submit:active {
+    transform: translateY(0);
+}
+
+/* Contenedor del formulario de registro (columnas) */
 #new-user-data {
     display: flex;
     flex-direction: column;
-    gap: 5px; /* Espaciado reducido entre los elementos */
-    flex-grow: 1; /* Permite que el formulario se ajuste al alto disponible */
+    gap: 5px;
 }
 
-input[type="submit"]:hover {
-    background-color: var(--main-yellow-color);
-    color:var(--main-blue-color);
-    transform: translateY(-3px); 
+/*
+    Media queries para responsividad:
+    Ajustan paddings, fuentes, grids y tamaños en tablets y móviles
+*/
+@media (max-width: 1024px) {
+    /* Tablet: reduce paddings y ancho de la tarjeta */
+    .login-aside {
+        padding: 36px 32px;
+        max-width: 90%;
+    }
+    .login-button-section {
+        gap: 10px;
+    }
 }
+
+@media (max-width: 768px) {
+    /* Móvil grande: tarjeta más angosta, botones apilados, logo más pequeño */
+    .login-aside {
+        padding: 30px 20px;
+        max-width: 95%;
+    }
+    .login-aside h1 {
+        font-size: 20px;
+    }
+    .login-button-section {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .login-logo-big img {
+        width: clamp(100px, 30vw, 220px);
+    }
+    .main-new-user {
+        width: 94%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Móvil pequeño: paddings mínimos, logo y botones más pequeños */
+    .login-aside {
+        padding: 22px 16px;
+    }
+    .login-aside h1 {
+        font-size: 18px;
+    }
+    .login-logo-big img {
+        width: clamp(80px, 40vw, 180px);
+    }
+    .login-button-section {
+        gap: 8px;
+    }
+}
+
+/*
+    Accesibilidad: outline visible al navegar con teclado
+*/
+button:focus, input:focus {
+        outline: 3px solid rgba(124,58,237,0.12);
+        outline-offset: 2px;
+}
+
+/* Fin del archivo de estilos del login */
