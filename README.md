@@ -9,7 +9,7 @@ Segunda entrega cajero JavaScript y DOM, presentado por:
 - Elizabeth Mejia Ochoa
 - Laura Ehileen Fernández Urrego
 - Kenny Alberto Figueroa Ramirez
-- 
+ 
 ## Características Principales
 
 - Registro y autenticación de usuarios
