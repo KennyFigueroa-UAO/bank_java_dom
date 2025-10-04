@@ -1,0 +1,191 @@
+:root {
+    --main-blue-color:#08203a;
+    --main-yellow-color: #ffcf27; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%; 
+    width: 100%; 
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    background-color: blue;
+}
+
+.login-main-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%;
+    height: 100vh; 
+}
+
+.login-logo-big {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-logo-big img {
+    object-fit: cover; 
+    width: 100%;
+    height: 100%;
+}
+
+.login-aside {
+    flex: 1;
+    background-color: aliceblue;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    border-radius: 8px;
+    height: 100%; 
+}
+
+.login-aside input {
+    text-align: center;
+}
+
+.login-button-section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;    
+}
+
+.login-option-button {
+    background-color:var(--main-blue-color);
+    color: var(--main-yellow-color);
+    border: none;
+    padding: 15px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.main-new-user {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    width: 90%; /* Ajustado para que ocupe menos espacio */
+    max-width: 500px; /* Mantener un tamaño máximo */
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 80vh; /* Asegura que el formulario no exceda el 80% de la altura de la pantalla */
+    
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.register-user-content h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cancel-new-user {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: var(--main-yellow-color);
+    background-color:var(--main-blue-color);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 25%;
+    transition: all 0.3s ease;
+}
+
+.cancel-new-user:hover {
+    background-color: var(--main-yellow-color);
+    color:var(--main-blue-color);
+    transform: scale(1.1);
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 1px;
+    display: block;
+}
+
+#new-user-data input[type="text"],
+#new-user-data input[type="password"] {
+    width: 100%;
+    padding: px;
+    font-size: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Ajustado para evitar el exceso de espacio */
+    box-sizing: border-box;
+}
+
+.error-message {
+    color: red;
+    font-size: 10px;
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 1px;
+}
+
+#login-user-error ,
+#login-password-error {
+    margin-top: 0;
+}
+
+#new-user-submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background-color:var(--main-blue-color);
+    color: var(--main-yellow-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px; /* Añadir margen superior para separar del contenido */
+}
+
+#new-user-submit:hover {
+    background-color: var(--main-yellow-color);
+    color:var(--main-blue-color);
+    transform: translateY(-3px);
+}
+
+#new-user-data {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espaciado reducido entre los elementos */
+    flex-grow: 1; /* Permite que el formulario se ajuste al alto disponible */
+}
+
+input[type="submit"]:hover {
+    background-color: var(--main-yellow-color);
+    color:var(--main-blue-color);
+    transform: translateY(-3px); 
+}
